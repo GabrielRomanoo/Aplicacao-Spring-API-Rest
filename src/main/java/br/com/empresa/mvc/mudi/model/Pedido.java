@@ -2,14 +2,33 @@ package br.com.empresa.mvc.mudi.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Pedido {
 
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
 	private String nomeProduto;
 	private BigDecimal valorNegociado;
 	private String dataEntrega;
 	private String urlProduto;
 	private String urlImagem;
 	private String descricao;
+	
+	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public String getNomeProduto() {
 		return nomeProduto;
