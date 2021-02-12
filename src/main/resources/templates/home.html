@@ -1,24 +1,48 @@
 <html>
-	<head>
-		<meta charset="UTF-8"/>
-	</head>
-	<body>
-		<div th:each="pedido : ${pedidos}">
-			<div th:text="${pedido.nomeProduto}">Nome do Produto</div>
-			
-			<div>Valor: <span th:text="${pedido.valorNegociado}">200,99</span></div>
-			<div>Data de Entrega: <span th:text="${pedido.dataEntrega}">10/02/2021</span></div>
-			
-			<div>Produto</div>
-			<div> <input th:value="${pedido.urlProduto}" value="url do Produto"/></div>
-			
-			<div>
-				<textarea th:text="${pedido.descricao}">Descricao do Produto</textarea>
-			</div>
-			
-			<div>
-				<img th:src="${pedido.urlImagem}" alt="imagem do produto" src="">
+<head>
+<meta charset="UTF-8" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="card" th:each="pedido : ${pedidos}">
+
+			<div class="card-header" th:text="${pedido.nomeProduto}">Nome
+				do Produto</div>
+
+			<div class="card-boddy">
+				<div class="row">
+
+					<div class="col-12 col-sm-8 mb-3">
+						<div class="row">
+							<div class="col-md-5">Valor: <span th:text="${pedido.valorNegociado}">200,99</span></div>
+							<div class="col-md-7">Data de Entrega: <span th:text="${pedido.dataEntrega}">10/02/2021</span></div>
+						</div>
+
+						<div>Produto</div>
+						<div>
+							<input class="form-control" th:value="${pedido.urlProduto}"
+								value="url do Produto" />
+						</div>
+
+						<div>Descrição</div>
+						<div>
+							<textarea class="form-control" th:text="${pedido.descricao}">Descricao do Produto</textarea>
+						</div>
+					</div>
+
+					<div class="col-12 col-sm-4">
+						<div>
+							<img th:src="${pedido.urlImagem}" class="img-thumbnail" alt="imagem do produto" src="">
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
-	</body>
+	</div>
+</body>
 </html>
