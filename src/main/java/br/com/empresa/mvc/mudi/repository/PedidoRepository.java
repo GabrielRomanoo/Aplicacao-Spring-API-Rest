@@ -2,22 +2,13 @@ package br.com.empresa.mvc.mudi.repository;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import br.com.empresa.mvc.mudi.model.Pedido;
 
 @Repository
-public class PedidoRepository {
+public interface PedidoRepository extends JpaRepository<Pedido, Long>{
 
-	@PersistenceContext //esta anotacao faz com que o hibernate configure o entity manager
-	private EntityManager em;
-	
-	public List<Pedido> recuperaTodosOsPedidos() {
-		Query query = em.createQuery("SELECT p FROM Pedido p");
-		return query.getResultList();
-	}
+//	public List<Pedido> findAll(); //a interface JpaRepository ja tem o findAll implementado
 }
