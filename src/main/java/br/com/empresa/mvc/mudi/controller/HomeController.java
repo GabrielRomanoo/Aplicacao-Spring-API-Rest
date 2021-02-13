@@ -30,3 +30,9 @@ public class HomeController {
 		return "home";
 	}
 }
+
+/* ANOTAÇÕES */
+
+/* Para saber qual é a instancia certa de uma classe,
+ * podemos apertar F4 ou botao direito + open Type Hierachy
+ * para ver o que podemos usar depois do new */
