@@ -1,12 +1,18 @@
 package br.com.empresa.mvc.mudi.dto;
 
+import javax.validation.constraints.NotBlank;
+
 import br.com.empresa.mvc.mudi.model.Pedido;
 
 public class RequisicaoNovoPedido {
 
 	/* Mesmos nomes dos names dos inputs da requisicao */
+	
+	@NotBlank //não aceita valores nulos ou vazios
 	private String nomeProduto;
+	@NotBlank
 	private String urlProduto;
+	@NotBlank
 	private String urlImagem;
 	private String descricao;
 
