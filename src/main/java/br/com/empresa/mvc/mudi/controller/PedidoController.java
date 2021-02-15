@@ -32,6 +32,7 @@ public class PedidoController {
 	@PostMapping("novo")
 	public String novo(@Valid RequisicaoNovoPedido requisicao, BindingResult result) { //anotação valid fala pro spring validar o objeto ao lado
 		if (result.hasErrors()) {
+			System.out.println("ENTROU");
 			return "pedido/formulario";
 		}
 		
