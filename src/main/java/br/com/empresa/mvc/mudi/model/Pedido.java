@@ -1,6 +1,7 @@
 package br.com.empresa.mvc.mudi.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -17,7 +18,7 @@ public class Pedido {
 	
 	private String nomeProduto;
 	private BigDecimal valorNegociado;
-	private String dataEntrega;
+	private LocalDate dataEntrega;
 	private String urlProduto;
 	private String urlImagem;
 	private String descricao;
@@ -57,11 +58,13 @@ public class Pedido {
 		this.valorNegociado = valorNegociado;
 	}
 
-	public String getDataEntrega() {
+	
+
+	public LocalDate getDataEntrega() {
 		return dataEntrega;
 	}
 
-	public void setDataEntrega(String dataEntrega) {
+	public void setDataEntrega(LocalDate dataEntrega) {
 		this.dataEntrega = dataEntrega;
 	}
 
