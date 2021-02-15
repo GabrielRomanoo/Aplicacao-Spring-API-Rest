@@ -10,10 +10,8 @@ public class RequisicaoNovoPedido {
 	
 	@NotBlank //gera essa mensagem de erro -> NotBlank.requisicaoNovoPedido.nomeProduto = mensagem default (pode ser mudada no arquivo messages.properties)
 	private String nomeProduto;
-	
 	@NotBlank //não aceita valores nulos ou vazios
 	private String urlProduto;
-	
 	@NotBlank
 	private String urlImagem;
 	private String descricao;
@@ -25,9 +23,14 @@ public class RequisicaoNovoPedido {
 	//@NotBlank @Min(5) @Max(20)
     //private String nomeProduto; 
 
+	
 
 	public void setNomeProduto(String nomeProduto) {
 		this.nomeProduto = nomeProduto;
+	}
+
+	public String getNomeProduto() {
+		return nomeProduto;
 	}
 
 	public String getUrlProduto() {
