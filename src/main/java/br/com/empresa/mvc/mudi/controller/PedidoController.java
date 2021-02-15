@@ -36,8 +36,10 @@ public class PedidoController {
 		}
 		
 		Pedido pedido = requisicao.toPedido();
+		System.out.println("ENTROU");
 		pedidoRepository.save(pedido);
-		return "home";
+		System.out.println("SAIU");
+		return "redirect:/home";
 	}
 	
 
