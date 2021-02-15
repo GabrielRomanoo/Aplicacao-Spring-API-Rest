@@ -5,23 +5,42 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.com.empresa.mvc.mudi.model.Pedido;
+import br.com.empresa.mvc.mudi.model.StatusPedido;
 import br.com.empresa.mvc.mudi.repository.PedidoRepository;
 
 @Controller
+@RequestMapping("/home")
 public class HomeController {
 	
 	@Autowired
 	private PedidoRepository pedidoRepository;
 
-	@GetMapping("/home")
+	@GetMapping
 	public String home(Model model) {
 		List<Pedido> pedidos = pedidoRepository.findAll();
 		model.addAttribute("pedidos", pedidos);
 		return "home";
+	}
+	
+	@GetMapping("/{satus}")
+	public String porStatus(@PathVariable("satus") String status, Model model) { //o spring vai injetar no parametro status uma variavel que vem do path chamada status 
+		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.valueOf(status.toUpperCase()));
+		model.addAttribute("pedidos", pedidos);
+		model.addAttribute("status", status);
+		return "home";
+	}
+	
+	//se ouver algum erro, entra no metodo abaixo
+	@ExceptionHandler(IllegalArgumentException.class)
+	public String onError() {
+		return "redirect:/home";
 	}
 	
 //	@GetMapping("/home")
