@@ -17,10 +17,14 @@ public class RequisicaoNovoPedido {
 	@NotBlank
 	private String urlImagem;
 	private String descricao;
+	
+	/* Usamos a anotação @NotBlank, mas existem várias outras anotações que podem ser usadas e combinadas. Exemplos clássicos são @Email, @Min, @Max ou @Pattern.
 
-	public String getNomeProduto() {
-		return nomeProduto;
-	}
+	Por exemplo, poderíamos definir que o nome do produto deve ter no mínimo 5 e no máximo 20 caracteres */
+	
+	//@NotBlank @Min(5) @Max(20)
+    //private String nomeProduto; 
+
 
 	public void setNomeProduto(String nomeProduto) {
 		this.nomeProduto = nomeProduto;
