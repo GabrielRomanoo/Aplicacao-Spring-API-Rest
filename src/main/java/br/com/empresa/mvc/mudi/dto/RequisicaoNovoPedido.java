@@ -23,9 +23,14 @@ public class RequisicaoNovoPedido {
 	//@NotBlank @Min(5) @Max(20)
     //private String nomeProduto; 
 
+	
 
 	public void setNomeProduto(String nomeProduto) {
 		this.nomeProduto = nomeProduto;
+	}
+
+	public String getNomeProduto() {
+		return nomeProduto;
 	}
 
 	public String getUrlProduto() {

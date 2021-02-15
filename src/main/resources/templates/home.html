@@ -1,34 +1,12 @@
 <html>
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap" rel="stylesheet">
-		<style>
-			.logo-container {
-				background-color: #47bcff;
-				color: #FFF;
-			}
-			.logo {
-				font-family: 'Montserrat', sans-serif;
-				font-size: 2.5rem;
-			}
-		
-		
-		</style>
-	</head>
+	<head th:replace="~{base :: head}"></head>
 	<body>
-		<div class="logo-container mb-3 p-3 d-flex justify-content-between">
-			<span class="logo">Mudi</span>
-			<span class="conta mt-3">Login</span>		
-		</div>
+		<div th:replace="~{base :: logo}"></div>
 	
 		<div class="container">
 			
-			<div class="jumbotron mb-0">
-				<h1 class="display-4">Meus Pedidos</h1>
-			</div>
-		
+			<div th:replace="~{base :: titulo('Meus Pedidos')}"></div>	
+			
 			<nav class="navbar navbar-expand navbar-light bg-light d-flex justify-content-between mb-3">
 				<div class="navbar-nav">
 					<a class="nav-link active" href="">Todos</a>
