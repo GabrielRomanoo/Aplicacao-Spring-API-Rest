@@ -24,7 +24,7 @@ public class PedidoController {
 	
 	//  @RequestMapping(method = RequestMethod.GET, value="formulario")
 	@GetMapping("formulario")
-	public String formulario() {
+	public String formulario(RequisicaoNovoPedido requisicao) {
 		return "pedido/formulario";
 	}
 	
