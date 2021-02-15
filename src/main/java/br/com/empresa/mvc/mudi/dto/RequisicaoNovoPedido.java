@@ -1,12 +1,20 @@
 package br.com.empresa.mvc.mudi.dto;
 
+import javax.validation.constraints.NotBlank;
+
 import br.com.empresa.mvc.mudi.model.Pedido;
 
 public class RequisicaoNovoPedido {
 
 	/* Mesmos nomes dos names dos inputs da requisicao */
+	
+	@NotBlank //gera essa mensagem de erro -> NotBlank.requisicaoNovoPedido.nomeProduto = mensagem default (pode ser mudada no arquivo messages.properties)
 	private String nomeProduto;
+	
+	@NotBlank //não aceita valores nulos ou vazios
 	private String urlProduto;
+	
+	@NotBlank
 	private String urlImagem;
 	private String descricao;
 
