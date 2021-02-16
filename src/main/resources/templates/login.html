@@ -1,0 +1,28 @@
+<html>
+	<meta charset="UTF-8" />
+	<head th:replace="~{base :: head}"></head>
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+	
+		<div class="container">
+			
+			<div th:replace="~{base :: titulo('Login do Cliente')}"></div>	
+			
+			<div class="card mb-3"">
+			
+				<form th:action="@{/logout}" method="post" class="card-body">
+				<div class="form-group">
+					<label for="username">Usuário</label>
+	                <input "username" class="form-control"/>
+				</div class="form-group">
+				<div>
+					<label for="password">Senha</label>
+	                <input type="password" name="passowrd" class="form-control"/>
+				</div>
+				<button type="submit" class="btn btn-primary">Continuar</button>
+				</form>
+		
+			</div>
+		</div>
+	</body>
+</html>
