@@ -23,9 +23,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 //			.httpBasic();
 			.formLogin(form -> form
-				.loginPage("/login")
+				.loginPage("/login") //ao fazer a requisição para /login
 				.permitAll() //todo mundo é permitido de acessar a pagina de login
-			);	
+			)
+			.logout(logout -> logout.logoutUrl("/logout"));	
 		
 	}
 	
