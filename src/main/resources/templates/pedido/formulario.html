@@ -19,7 +19,7 @@
 	                </div>
 	                <div class="form-group">
 	                    <label for="urlProduto">Url</label>
-	                    <input th:field="*{urlProduto}" th:errorclass="is-invalid" class="form-control" name="urlProduto" placeholder="url do produto"/>
+	                    <input th:field="*{urlProduto}" th:errorclass="is-invalid" class="form-control" name="urlProduto" placeholder="https://site.com.br"/>
 	                    <small>Procure em um site o produto que você deseja e cole a url da página aqui.</small>
 	                	<div th:errors="*{urlProduto}"  class="invalid-feedback">
 	                    	Erros da url do produto
@@ -27,7 +27,7 @@
 	                </div>
 	                <div class="form-group">
 	                    <label for="urlImagem">Imagem</label>
-	                    <input th:field="*{urlImagem}" th:errorclass="is-invalid" class="form-control" name="urlImagem" placeholder="url da imagem"/>
+	                    <input th:field="*{urlImagem}" th:errorclass="is-invalid" class="form-control" name="urlImagem" placeholder="https://imagem.com.br"/>
 	                    <small>Copie a url de uma boa imagem do produto e cole aqui para ajudar a conseguir compradores.</small>
 	                	<div th:errors="*{urlImagem}" class="invalid-feedback">
 	                    	Erros da url da imagem
