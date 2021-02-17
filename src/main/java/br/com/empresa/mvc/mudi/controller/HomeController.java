@@ -1,8 +1,10 @@
 package br.com.empresa.mvc.mudi.controller;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -23,15 +25,16 @@ public class HomeController {
 	private PedidoRepository pedidoRepository;
 
 	@GetMapping
-	public String home(Model model) {
-		List<Pedido> pedidos = pedidoRepository.findAll();
+	public String home(Model model, Principal principal) { //objeto principal pegamos dados do usuario
+		List<Pedido> pedidos = pedidoRepository.findAllByUser(principal.getName());
 		model.addAttribute("pedidos", pedidos);
 		return "home";
 	}
 	
 	@GetMapping("/{satus}")
 	public String porStatus(@PathVariable("satus") String status, Model model) { //o spring vai injetar no parametro status uma variavel que vem do path chamada status 
-		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.valueOf(status.toUpperCase()));
+//		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.valueOf(status.toUpperCase()));
+		List<Pedido> pedidos = pedidoRepository.findByStatusAndUser(StatusPedido.valueOf(status.toUpperCase()), SecurityContextHolder.getContext().getAuthentication().getName());
 		model.addAttribute("pedidos", pedidos);
 		model.addAttribute("status", status);
 		return "home";
