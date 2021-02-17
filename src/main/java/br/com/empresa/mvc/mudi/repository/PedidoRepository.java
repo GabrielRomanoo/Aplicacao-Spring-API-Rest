@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import br.com.empresa.mvc.mudi.model.Pedido;
 import br.com.empresa.mvc.mudi.model.StatusPedido;
+import br.com.empresa.mvc.mudi.model.User;
 
 @Repository
 public interface PedidoRepository extends JpaRepository<Pedido, Long>{
@@ -17,6 +18,9 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long>{
 
 	@Query("SELECT p FROM Pedido p join p.user u where u.username = :username")
 	List<Pedido> findAllByUser(@Param("username")String username);
+	
+	@Query("SELECT p FROM Pedido p join p.user u where u.username = :username and p.status = :status")
+	List<Pedido> findByStatusAndUser(@Param("status") StatusPedido status,@Param("username") String username);
 
 //	public List<Pedido> findAll(); //a interface JpaRepository ja tem o findAll implementado
 }

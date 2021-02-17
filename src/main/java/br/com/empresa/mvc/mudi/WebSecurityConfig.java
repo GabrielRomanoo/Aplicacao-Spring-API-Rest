@@ -28,16 +28,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http
-			.authorizeRequests()
-				.anyRequest().authenticated()
-			.and()
-//			.httpBasic();
-			.formLogin(form -> form
-				.loginPage("/login") //ao fazer a requisição para /login
-				.defaultSuccessUrl("/home", true) //pagina que irá depois do login
-				.permitAll() //todo mundo é permitido de acessar a pagina de login
-			)
-			.logout(logout -> logout.logoutUrl("/logout"));	
+		.authorizeRequests()
+			.anyRequest().authenticated()
+		.and()
+//		.httpBasic();
+		.formLogin(form -> form
+			.loginPage("/login") //ao fazer a requisição para /login
+			.defaultSuccessUrl("/home", true) //pagina que irá depois do login
+			.permitAll() //todo mundo é permitido de acessar a pagina de login
+		)
+		.logout(logout -> logout.logoutUrl("/logout"))	
+		.csrf().disable(); //desabilitando uma configuração de segurança para os pedidos serem inseridos no banco
 		
 	}
 	
