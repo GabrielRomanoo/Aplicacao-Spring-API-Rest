@@ -11,10 +11,15 @@
 		.logo {
 			font-family: 'Montserrat', sans-serif;
 			font-size: 2.5rem;
+			font-weight: bold;
 		}
-		.conta {
+		.login {
 			font-size: 1.5rem;
 		}
+		.nav {
+			color:  #47bcff;
+		}
+		
 	
 	</style>
 </head>
@@ -22,14 +27,14 @@
 <div th:fragment="logo">
 	<div class="row logo-container  p-3 d-flex justify-content-between">
 		<span class="logo ml-3">Mudi</span>
-		<span class="conta mt-3 mr-3">
+		<span class="login mt-3 mr-3">
 			<a class="text-light" sec:authorize="!isAuthenticated()" href="/login">Login</a>
 			<a onclick="document.querySelector('#form-login').submit()" class="text-light" sec:authorize="isAuthenticated()" href="#">Logout</a>
 			<form id="form-login" th:action="@{/logout}" method="POST"></form>	
 		</span>
 	</div>
 	<div class="row" sec:authorize="isAuthenticated()">
-		<div class="col">
+		<div class="col" >
 		<nav class="nav">
 			<a class="nav-link" th:href="@{/home}">Home</a>
 		  	<a class="nav-link" th:href="@{/usuario/pedido}">Meus Pedidos</a>
