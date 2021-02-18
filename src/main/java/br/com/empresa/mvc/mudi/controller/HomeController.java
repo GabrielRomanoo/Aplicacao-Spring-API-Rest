@@ -4,6 +4,8 @@ import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,25 +27,14 @@ public class HomeController {
 	private PedidoRepository pedidoRepository;
 
 	@GetMapping
-	public String home(Model model, Principal principal) { //objeto principal pegamos dados do usuario
-		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.ENTREGUE);
+	public String home(Model model) { //objeto principal pegamos dados do usuario
+		Sort sort = Sort.by("dataEntrega").descending();
+		PageRequest paginacao = PageRequest.of(0, 10, sort); //primeira pagina, 10 itens por pagina
+		
+		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.ENTREGUE, paginacao);
 		model.addAttribute("pedidos", pedidos);
 		return "home";
 	}	
-	
-	@GetMapping("/{satus}")
-	public String porStatus(@PathVariable("satus") String status, Model model) { //o spring vai injetar no parametro status uma variavel que vem do path chamada status 
-		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.valueOf(status.toUpperCase()));
-		model.addAttribute("pedidos", pedidos);
-		model.addAttribute("status", status);
-		return "home";
-	}
-	
-	//se ouver algum erro, entra no metodo abaixo
-	@ExceptionHandler(IllegalArgumentException.class)
-	public String onError() {
-		return "redirect:/home";
-	}
 	
 //	@GetMapping("/home")
 //	public ModelAndView home() {
