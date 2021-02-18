@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //		.httpBasic();
 		.formLogin(form -> form
 			.loginPage("/login") //ao fazer a requisição para /login
-			.defaultSuccessUrl("/home", true) //pagina que irá depois do login
+			.defaultSuccessUrl("/usuario/pedido", true) //requisicao que terá depois do login
 			.permitAll() //todo mundo é permitido de acessar a pagina de login
 		)
 		.logout(logout -> logout.logoutUrl("/logout"))	
