@@ -26,10 +26,10 @@ public class HomeController {
 
 	@GetMapping
 	public String home(Model model, Principal principal) { //objeto principal pegamos dados do usuario
-		List<Pedido> pedidos = pedidoRepository.findAll();
+		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.ENTREGUE);
 		model.addAttribute("pedidos", pedidos);
 		return "home";
-	}
+	}	
 	
 	@GetMapping("/{satus}")
 	public String porStatus(@PathVariable("satus") String status, Model model) { //o spring vai injetar no parametro status uma variavel que vem do path chamada status 

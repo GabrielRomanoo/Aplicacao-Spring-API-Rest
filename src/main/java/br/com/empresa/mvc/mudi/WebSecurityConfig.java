@@ -29,7 +29,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http
 		.authorizeRequests()
-			.anyRequest().authenticated()
+			.antMatchers("/home/**") //pode entrar em /home/qualquercoisa sem precisar de autorizacao
+				.permitAll()
+			.anyRequest()         // qualquer usuario
+				.authenticated()  //precisa estar autenticado	
 		.and()
 //		.httpBasic();
 		.formLogin(form -> form
@@ -37,7 +40,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 			.defaultSuccessUrl("/usuario/pedido", true) //requisicao que terá depois do login
 			.permitAll() //todo mundo é permitido de acessar a pagina de login
 		)
-		.logout(logout -> logout.logoutUrl("/logout"))	
+		.logout(logout -> {
+			logout.logoutUrl("/logout")
+				.logoutSuccessUrl("/home"); //ao fazer logout, irá ser redirecionado para /home
+			
+		})
 		.csrf().disable(); //desabilitando uma configuração de segurança para os pedidos serem inseridos no banco
 		
 	}
