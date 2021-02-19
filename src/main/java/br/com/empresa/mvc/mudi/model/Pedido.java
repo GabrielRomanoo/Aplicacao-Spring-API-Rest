@@ -12,6 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Pedido {
 
@@ -26,6 +29,7 @@ public class Pedido {
 	private String descricao;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JsonBackReference
 	private User user;
 	
 	public User getUser() {
