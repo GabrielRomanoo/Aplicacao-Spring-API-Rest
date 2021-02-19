@@ -22,6 +22,11 @@ public class UsuarioController {
 
 	@Autowired
 	private PedidoRepository pedidoRepository;
+	
+	@GetMapping("esqueciSenha")
+	public String esqueciSenha() {
+		return "senha";
+	}
 
 	@GetMapping("pedido")
 	public String home(Model model, Principal principal) { //objeto principal pegamos dados do usuario
