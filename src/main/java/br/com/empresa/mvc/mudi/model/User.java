@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -18,6 +19,7 @@ public class User {
 
 	@Id
 	private String username;
+	@JsonIgnore //para nao aparecer no json
 	private String password;
 	private boolean enabled;
 	
