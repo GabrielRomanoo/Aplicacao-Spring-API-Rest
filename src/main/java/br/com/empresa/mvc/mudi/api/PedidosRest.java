@@ -26,10 +26,7 @@ public class PedidosRest {
 		PageRequest paginacao = PageRequest.of(0, 2, sort); 
 		
 		List<Pedido> pedidos = pedidoRepository.findByStatus(StatusPedido.AGUARDANDO, paginacao);
-		
-		System.out.println(pedidos.size());
-		
-		
+		System.out.println("Chamando PedidosRest, passanmdo pelo getPedidosAguardandoOfertas()");
 		return pedidos;
 	}
 }

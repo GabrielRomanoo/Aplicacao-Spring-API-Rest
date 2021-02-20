@@ -43,32 +43,18 @@
 				var app = new Vue({
 				  	el: '#ofertas',
 				  	data: {
-				   		pedidos: [
-			   			{
-			   		        "id" : 4,
-			   		        "nomeProduto" : "Wireless Earbuds TaoTronics",
-			   		        "valorNegociado" : null,
-			   		        "dataDaEntrega" : null,
-			   		        "urlProduto" : "https://www.amazon.com/TaoTronics-SoundLiberty-79-Technology-Waterproof/dp/B08397W1F7/ref=gbps_img_m-9_475e_ff9c5f1b?smid=AAJVIARPZY8SB&pf_rd_p=5d86def2-ec10-4364-9008-8fbccf30475e&pf_rd_s=merchandised-search-9&pf_rd_t=101&pf_rd_i=15529609011&pf_rd_m=ATVPDKIKX0DER&pf_rd_r=WD9HGMRTX91GNP8DKA4Z",
-			   		        "urlImagem" : "https://images-na.ssl-images-amazon.com/images/I/51SgO0fSIuL._AC_SL1300_.jpg",
-			   		        "descricao" : "descrição Wireless Earbuds TaoTronics",
-			   		        "status" : "AGUARDANDO"
-			   		    },
-			   		    {
-			   		        "id" : 3,
-			   		        "nomeProduto" : "ASICS Men's GEL Venture 5 Running",
-			   		        "valorNegociado" : null,
-			   		        "dataDaEntrega" : null,
-			   		        "urlProduto" : "https://www.amazon.com/ASICS-Gel-Venture-5-M-Silver-Light/dp/B00NUZD2PW?ref_=Oct_DLandingS_D_6340036f_60&smid=A2NEM58BFPMEIL",
-			   		        "urlImagem" : "https://images-na.ssl-images-amazon.com/images/I/718OQVH7AnL._AC_UX625_.jpg",
-			   		        "descricao" : "descrição para ASICS ",
-			   		        "status" : "AGUARDANDO"
-			   		    } 
-				   		]
+				   		pedidos: []
+				  	},
+				  	mounted () {
+				  		console.log("função mounted é chamada automaticamente depois que o Vue renderiza o html")
+				  		axios
+				  		.get('http://localhost:8080/api/pedidos/aguardando')
+					    .then(response => (this.pedidos = response.data))
 				  	}
 				})
 			}
 		</script>
 		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	</body>
 </html>
