@@ -2,9 +2,13 @@ package br.com.empresa.mvc.mudi.api;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.empresa.mvc.mudi.dto.RequisicaoNovaOferta;
@@ -20,7 +24,8 @@ public class OfertasRest {
 	private PedidoRepository pedidoRepository;
 	
 	@PostMapping
-	public Oferta criaOferta(RequisicaoNovaOferta requisicao) {
+	public Oferta criaOferta(@Valid @RequestBody RequisicaoNovaOferta requisicao) {
+		
 		Optional<Pedido> pedidoBuscado = pedidoRepository.findById(requisicao.getPedidoId());
 		if (!pedidoBuscado.isPresent()) {
 			System.out.println("DEU RUIM");
