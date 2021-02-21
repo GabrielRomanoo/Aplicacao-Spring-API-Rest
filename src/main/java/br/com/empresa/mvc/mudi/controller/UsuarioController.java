@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.empresa.mvc.mudi.model.Pedido;
@@ -22,6 +23,11 @@ public class UsuarioController {
 
 	@Autowired
 	private PedidoRepository pedidoRepository;
+	
+	@PostMapping("resetarSenha")
+	public String resetarSenha(String email) {
+		return "home";
+	}
 	
 	@GetMapping("esqueciSenha")
 	public String esqueciSenha() {

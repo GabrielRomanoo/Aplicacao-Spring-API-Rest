@@ -1,40 +1,23 @@
 <html>
-<body>
-    <h1 th:text="#{message.resetPassword}">reset</h1>
-
-    <label th:text="#{label.user.email}">email</label>
-    <input id="email" name="email" type="email" value="" />
-    <button type="submit" onclick="resetPass()" 
-      th:text="#{message.resetPassword}">reset</button>
-
-<a th:href="@{/registration.html}" th:text="#{label.form.loginSignUp}">
-    registration
-</a>
-<a th:href="@{/login}" th:text="#{label.form.loginLink}">login</a>
-
-<script src="jquery.min.js"></script>
-<script th:inline="javascript">
-var serverContext = "localhost:8080/";
-function resetPass(){
-    var email = $("#email").val();
-    $.post(serverContext + "user/resetPassword",{email: email} ,
-      function(data){
-          window.location.href = 
-           serverContext + "login?message=" + data.message;
-    })
-    .fail(function(data) {
-    	if(data.responseJSON.error.indexOf("MailError") > -1)
-        {
-            window.location.href = serverContext + "emailError.html";
-        }
-        else{
-            window.location.href = 
-              serverContext + "login?message=" + data.responseJSON.message;
-        }
-    });
-}
-
-</script>
-</body>
-
-</html>
+	<meta charset="UTF-8"/>
+	<head th:replace="~{base :: head}"></head>
+	<body>
+		<div th:replace="~{base :: logo}"></div>
+	
+		<div class="container">
+			<div th:replace="~{base :: titulo('Recupere sua conta')}"></div>
+		
+			<div class="card mb-3">
+				<form th:action="@{/usuario/resetarSenha}" class="card-body" method="post">
+					<div class="form-group">
+						<h5 for="email" class="mb-3">Lhe enviaremos um email com um link para redefinir sua senha</h5>
+						<input type="text" name="email"  class="form-control" placeholder="exemplo@email.com"/>
+					</div>
+					<div class="row ml-0 mb-0 d-flex justify-content-between">
+						<button class="btn btn-primary" type="submit">Enviar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>	
