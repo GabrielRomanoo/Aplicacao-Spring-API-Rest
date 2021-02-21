@@ -4,9 +4,10 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-import com.sun.istack.NotNull;
 
 import br.com.empresa.mvc.mudi.model.Oferta;
 
@@ -25,12 +26,14 @@ public class RequisicaoNovaOferta {
 	private Long pedidoId;
 
 	//"92191239.99"
-	@Pattern(regexp = "^\\d+(\\.\\d+{2})?$") //indica a forma como este campo deve ser preenchido
-	@NotNull
+	@Pattern(regexp = "^\\d+(\\.\\d+{2})?$", message = "O campo Valor deve ser preenchido usando números") //indica a forma como este campo deve ser preenchido
+	@NotNull(message = "O campo Valor é obrigatório")
+	@NotBlank(message = "O campo Valor é obrigatório")
 	private String valor;
 
-	@Pattern(regexp = "^\\d{2}/\\d{2}/\\d{4}$")
-	@NotNull
+	@Pattern(regexp = "^\\d{2}/\\d{2}/\\d{4}$", message = "O campo Data de Entrega deve ser prenchido como dia/mês/ano usando números")
+	@NotNull(message = "O campo Valor é obrigatório")
+	@NotBlank(message = "O campo Data de Entrega é obrigatório")
 	private String dataDeEntrega;
 
 	private String comentario;
