@@ -17,7 +17,7 @@
 						<div class="col-12 col-sm-8 mb-3">
 								
 							<div>Produto</div>
-							<div><a v-bind:href="pedido.urlProduto">{{pedido.nomeProduto}}</a></div>
+							<div><a v-bind:href="pedido.urlProduto">Ver na Loja</a></div>
 	
 							<div class="mt-2">Descrição</div>
 							<div>
@@ -26,7 +26,7 @@
 							
 							<div class="row mt-3">
 								<div class="col-md-5">Valor: <input v-model="pedido.valorNegociado" class="form-control"/></div>
-								<div class="col-md-7">Data de Entrega: <input v-model="pedido.dataEntrega" class="form-control"/></div>
+								<div class="col-md-7">Data de Entrega: <input v-model="pedido.dataEntrega" class="form-control" placeholder="dia/mês/ano"/></div>
 							</div>
 							
 							<div class="mt-3">
