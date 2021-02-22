@@ -1,6 +1,6 @@
-# Aplicação Web Spring MVC
+# Aplicação Web Spring MVC e API REST
 
-Esta aplicação possui duas variações. Uma com API Rest e Vue.js e outra com Thymeleaf e Bootstrap. Em todas as versões, é usado Java para o backend.
+Esta aplicação possui partes usando API Rest e Vue.js e outras com Thymeleaf e Bootstrap. Em todas as partes, é usado Java com Spring Framework para o backend.
 
 - Abaixo imagens das telas usando Thymeleaf e Bootstrap (renderizadas no backend).
 	> Página de Login:
@@ -15,15 +15,18 @@ Esta aplicação possui duas variações. Uma com API Rest e Vue.js e outra com 
 	> Página de Formulário de Pedido para Usuários Logados:
 ![3](https://user-images.githubusercontent.com/51065003/108546251-a0fe2280-72c7-11eb-95b8-e6bb0311071a.png)
 
-	> Página de Formulário de Oferta para Usuários Logados:
-![4](https://user-images.githubusercontent.com/51065003/108755336-e3bd3600-7525-11eb-91a0-0627d8d90c6d.png)
 
 	> Fluxo da aplicação da aplicação das imagens acima:
 ![image](https://user-images.githubusercontent.com/51065003/108755655-4adaea80-7526-11eb-9c25-99a5fe008fde.png)
 
 
+- Abaixo imagens das telas usando Vuejs, mandando request via AJAX para o backend.
 
+	> Página de Formulário de Oferta para Usuários Logados:
+![4](https://user-images.githubusercontent.com/51065003/108755336-e3bd3600-7525-11eb-91a0-0627d8d90c6d.png)
 
+	> Fluxo da aplicação da aplicação das imagens acima:
+![image](https://user-images.githubusercontent.com/51065003/108756011-bde46100-7526-11eb-8c0a-052184b03477.png)
 
 
 
