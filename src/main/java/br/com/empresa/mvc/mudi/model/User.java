@@ -22,6 +22,7 @@ public class User {
 	@JsonIgnore //para nao aparecer no json
 	private String password;
 	private boolean enabled;
+	private String email;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user" ,fetch = FetchType.LAZY)
 	@JsonManagedReference //usado para acabar com a recursao infinita do json
@@ -57,6 +58,14 @@ public class User {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

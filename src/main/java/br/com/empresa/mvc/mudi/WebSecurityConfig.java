@@ -29,7 +29,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		http
 		.authorizeRequests()
-			.antMatchers("/home/**","/usuario/esqueciSenha") //pode entrar em /home/qualquercoisa sem precisar de autorizacao
+			.antMatchers("/home/**","/usuario/esqueciSenha", "/usuario/resetarSenha", "/usuario/mudarSenha", "/usuario/updatePassword", "/usuario/salvarSenha") //pode entrar em /home/qualquercoisa sem precisar de autorizacao
 				.permitAll()
 			.anyRequest()         // qualquer usuario
 				.authenticated()  //precisa estar autenticado	
