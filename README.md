@@ -10,7 +10,7 @@ Esta aplicação possui partes usando API Rest e Vue.js e outras com Thymeleaf e
 | :fire: Desafio     | 
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
-![](https://user-images.githubusercontent.com/51065003/108545928-2df4ac00-72c7-11eb-8497-f631b7b7f396.png)
+![](https://user-images.githubusercontent.com/51065003/108545928-2df4ac00-72c7-11eb-8497-f631b7b7f396.png#vitrinedev)
 
 ## Detalhes do projeto
 
