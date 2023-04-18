@@ -2,6 +2,18 @@
 
 Esta aplicação possui partes usando API Rest e Vue.js e outras com Thymeleaf e Bootstrap. Em todas as partes, é usado Java com Spring Framework para o backend.
 
+| :placard: Vitrine.Dev |     |
+| -------------  | --- |
+| :sparkles: Nome        | **Aplicação Web Spring MVC e API REST**
+| :label: Tecnologias | java, sql, html, spring (tecnologias utilizadas)
+| :rocket: URL         | 
+| :fire: Desafio     | 
+
+<!-- Inserir imagem com a #vitrinedev ao final do link -->
+![](https://user-images.githubusercontent.com/51065003/108545928-2df4ac00-72c7-11eb-8497-f631b7b7f396.png)
+
+## Detalhes do projeto
+
 - Abaixo imagens das telas usando Thymeleaf e Bootstrap (renderizadas no backend).
 	> Página de Login:
 ![0](https://user-images.githubusercontent.com/51065003/108545501-a149ee00-72c6-11eb-8a54-d69295a69706.png)
